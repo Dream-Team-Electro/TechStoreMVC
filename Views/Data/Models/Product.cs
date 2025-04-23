@@ -22,5 +22,9 @@ namespace TechStoreMVC.Views.Data.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 
+
+        [Required]
+        public string ImagePath { get; set; }
+
     }
 }

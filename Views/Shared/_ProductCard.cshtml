@@ -1,10 +1,8 @@
 ﻿@model TechStoreMVC.Views.Data.Models.Product
 
-<div class="card h-100">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Description</p>
-        <p class="card-text fw-bold">Цена: @Model.Price лв.</p>
-        <p class="card-text"><small class="text-muted">Категория: @Model.Category.Name</small></p>
-    </div>
+<div class="product-card">
+    <img src="@Model.ImagePath" alt="@Model.Name" class="product-image" />
+    <h5>@Model.Name</h5>
+    <p>@Model.Description</p>
+    <p><strong>@Model.Price лв</strong></p>
 </div>

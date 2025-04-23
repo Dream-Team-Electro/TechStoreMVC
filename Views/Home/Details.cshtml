@@ -1,0 +1,20 @@
+﻿@model TechStoreMVC.Views.Data.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="product-details">
+    <h1>@Model.Name</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImagePath" alt="@Model.Name" class="product-image img-fluid" />
+        </div>
+        <div class="col-md-6">
+            <p><strong>Описание:</strong> @Model.Description</p>
+            <p><strong>Цена:</strong> @Model.Price лв</p>
+            <p><strong>Категория:</strong> @Model.Category.Name</p>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Назад към продуктите</a>
+        </div>
+    </div>
+</div>

@@ -1,22 +1,138 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    font-family: 'Segoe UI', sans-serif;
+    color: #2d4d34;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #388e3c;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-carousel {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    padding: 16px;
+    width: 250px;
+    height: 420px; /* фиксирана височина за еднакви размери */
+    box-shadow: 0 8px 16px rgba(56, 142, 60, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeIn 0.7s ease-in;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(56, 142, 60, 0.3);
+    }
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+
+.product-card h5 {
+    font-size: 18px;
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #4a6350;
+}
+
+    .product-card p strong {
+        font-size: 16px;
+        color: #1b5e20;
+    }
+
+footer {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Стил за навигационното меню */
+.navbar {
+    background: linear-gradient(90deg, #a5d6a7, #c8e6c9);
+    border-bottom: 2px solid #81c784;
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.1);
+    font-weight: 500;
+}
+
+.navbar-brand {
+    color: #1b5e20 !important;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.navbar-nav .nav-link {
+    color: #2d4d34 !important;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+        color: #1b5e20 !important;
+    }
+
+/* Падащо меню */
+.dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid #a5d6a7;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(76, 175, 80, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-item {
+    color: #2d4d34;
+    padding: 10px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+}
+
+    .dropdown-item:hover {
+        background-color: #c8e6c9;
+        color: #1b5e20;
+    }
+
+.dropdown-divider {
+    border-color: #a5d6a7;
 }
