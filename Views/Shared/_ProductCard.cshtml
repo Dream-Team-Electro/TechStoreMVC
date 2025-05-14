@@ -1,8 +1,15 @@
-﻿@model TechStoreMVC.Views.Data.Models.Product
+﻿<div class="product-card text-center d-flex flex-column h-100 p-3 border rounded shadow-sm">
+    <div class="image-wrapper mb-3 d-flex justify-content-center align-items-center" style="height: 200px;">
+        <img src="@Model.ImagePath" alt="@Model.Name" class="img-fluid" style="max-height: 100%; object-fit: contain;" />
+    </div>
 
-<div class="product-card">
-    <img src="@Model.ImagePath" alt="@Model.Name" class="product-image" />
-    <h5>@Model.Name</h5>
-    <p>@Model.Description</p>
-    <p><strong>@Model.Price лв</strong></p>
+    <h5 class="mb-2">@Model.Name</h5>
+    <p class="text-muted small">@Model.Description</p>
+    <p class="fw-bold text-success">@Model.Price лв</p>
+
+    <div class="mt-auto">
+        <a href="@Url.Action("Details", "Home", new { id = Model.ProductId })" class="btn btn-outline-primary btn-sm">
+            Виж детайли
+        </a>
+    </div>
 </div>

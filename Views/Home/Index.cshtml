@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Начало";
     Layout = "_Layout";
+
+    var shuffledProducts = Model.OrderBy(p => Guid.NewGuid()).ToList();
 }
 
 @section Styles {
@@ -11,46 +13,14 @@
 }
 
 <main class="container py-4">
-    <h1 class="mb-4"> Welcome to our store!</h1>
+    <h1 class="mb-4">Актуални предложения</h1>
 
-    @if (Model != null && Model.Any())
-    {
-        <div class="product-carousel">
-            @foreach (var product in Model)
-            {
-                <div class="p-2">
-                    @await Html.PartialAsync("_ProductCard", product)
-                </div>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="col-12">
-            <p class="text-muted">Няма налични продукти в момента.</p>
-        </div>
-    }
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var product in shuffledProducts)
+        {
+            <div class="col">
+                @await Html.PartialAsync("_ProductCard", product)
+            </div>
+        }
+    </div>
 </main>
-
-@section Scripts {
-    <!-- jQuery и Slick Carousel -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('.product-carousel').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                arrows: true,
-                dots: true,
-                responsive: [
-                    { breakpoint: 1200, settings: { slidesToShow: 4 } },
-                    { breakpoint: 992, settings: { slidesToShow: 3 } },
-                    { breakpoint: 768, settings: { slidesToShow: 2 } },
-                    { breakpoint: 576, settings: { slidesToShow: 1 } }
-                ]
-            });
-        });
-    </script>
-}

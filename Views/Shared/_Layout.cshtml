@@ -9,49 +9,45 @@
     <link rel="stylesheet" href="~/TechStoreMVC.styles.css" asp-append-version="true" />
     @RenderSection("Styles", required: false)
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!-- NAVIGATION BAR -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KPP TechStore</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Triple Black Electronics</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
-                        <!-- Падащо меню "Меню" -->
+                        <!-- Drop-down меню -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown">
                                 Меню
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="1">Периферия</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="2">Дисплеи</a></li>
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="3">Аксесоари</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="1">Мишки</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="2">Клавиатури</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="3">Слушалки</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="4">Монитори</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index" asp-route-categoryId="5">Аксесоари</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" asp-controller="Home" asp-action="Privacy">Поверителност</a></li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container flex-fill">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - TechStoreMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Поверителност</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
