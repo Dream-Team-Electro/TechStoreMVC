@@ -4,17 +4,46 @@
     ViewData["Title"] = Model.Name;
 }
 
-<div class="product-details">
-    <h1>@Model.Name</h1>
+<div class="container my-5">
+    <h1 class="mb-4">@Model.Name</h1>
     <div class="row">
+        <!-- Основна снимка + галерия -->
         <div class="col-md-6">
-            <img src="@Model.ImagePath" alt="@Model.Name" class="product-image img-fluid" />
+            <!-- Основно изображение -->
+            <img id="main-image" src="@Model.ImagePath" alt="@Model.Name" class="img-fluid rounded shadow-sm mb-3" />
+
+            <!-- Миниатюри -->
+            <div class="d-flex flex-wrap gap-2">
+                <img src="@Model.ImagePath" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                     onclick="document.getElementById('main-image').src='@Model.ImagePath'" />
+
+                <img src="@Model.ImagePath.Replace(".jpg", "_1.jpg")" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                     onclick="document.getElementById('main-image').src='@Model.ImagePath.Replace(".jpg", "_1.jpg")'" />
+
+                <img src="@Model.ImagePath.Replace(".jpg", "_2.jpg")" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                     onclick="document.getElementById('main-image').src='@Model.ImagePath.Replace(".jpg", "_2.jpg")'" />
+            </div>
         </div>
+
+        <!-- Детайли за продукта -->
         <div class="col-md-6">
-            <p><strong>Описание:</strong> @Model.Description</p>
-            <p><strong>Цена:</strong> @Model.Price лв</p>
+            <p><strong>Описание:</strong></p>
+            <p>@Model.Description</p>
+
             <p><strong>Категория:</strong> @Model.Category.Name</p>
-            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Назад към продуктите</a>
+            <p><strong>Цена:</strong> <span class="text-success fw-bold">@Model.Price лв</span></p>
+
+            <!-- Допълнителна информация -->
+            <hr />
+            <h5 class="mt-4">Защо да избереш този продукт?</h5>
+            <p>
+                Продуктът е проектиран с внимание към детайла и съчетава стил с надеждност. Използвани са висококачествени материали, за да ти осигурят дълготрайна употреба и комфорт.
+            </p>
+            <p>
+                Подходящ е както за професионалисти, така и за обикновени потребители, търсещи отлично съотношение между цена и качество.
+            </p>
+
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary mt-4">⬅ Назад към продуктите</a>
         </div>
     </div>
 </div>
